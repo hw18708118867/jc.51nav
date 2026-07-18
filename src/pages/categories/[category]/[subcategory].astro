@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { CATEGORIES, getCategory, getSubCategory } from '../../../utils/site.ts';
+
+export async function getStaticPaths() {
+  const paths: { params: { category: string; subcategory: string }; props: { sub: any } }[] = [];
+  for (const c of CATEGORIES) {
+    for (const s of c.subcategories) {
+      paths.push({ params: { category: c.slug, subcategory: s.slug }, props: { sub: s } });
+    }
+  }
+  return paths;
+}
+
+const { category, subcategory } = Astro.params;
+const sub = Astro.props.sub;
+const cat = getCategory(category!)!;
+const subCat = getSubCategory(category!, subcategory!) ?? sub;
+
+const entries = await getCollection(
+  'tutorials',
+  ({ data }) => !data.draft && data.category === category && data.subcategory === subcategory,
+);
+entries.sort((a, b) => a.data.order - b.data.order || b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title={`${cat.name} · ${subCat.name}`} description={`${cat.name} 下的 ${subCat.name} 相关教程。`} darkHero={true}>
+  <PageHero
+    title={subCat.name}
+    subtitle={`${cat.name} · 共 ${entries.length} 篇`}
+    icon={cat.icon}
+    tag="子分类"
+  />
+
+  <div class="relative mx-auto max-w-7xl px-4 py-8">
+    <Breadcrumb
+      items={[
+        { name: '首页', href: '/' },
+        { name: cat.name, href: `/categories/${cat.slug}` },
+        { name: subCat.name },
+      ]}
+    />
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      {
+        cat.subcategories.map((s) => (
+          <a
+            href={`/categories/${cat.slug}/${s.slug}`}
+            class={`rounded-full border px-3 py-1 text-sm transition ${
+              s.slug === subcategory
+                ? 'border-brand-500 bg-brand-50 text-brand-700'
+                : 'border-slate-200 text-slate-600 hover:border-brand-300 hover:text-brand-600'
+            }`}
+          >
+            {s.name}
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      entries.length > 0 ? (
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {entries.map((entry) => <ArticleCard entry={entry} />)}
+        </div>
+      ) : (
+        <div class="mt-10 rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-10 text-center text-slate-500">
+          该子分类下暂无教程，敬请期待～
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

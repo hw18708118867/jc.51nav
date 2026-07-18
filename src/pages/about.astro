@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../utils/site.ts';
+---
+
+<BaseLayout title="关于本站" description={`关于 ${SITE.name}`}>
+  <div class="mx-auto max-w-3xl px-4 py-12">
+    <h1 class="text-3xl font-bold text-slate-900">关于 {SITE.name}</h1>
+    <div class="prose prose-slate mt-6 max-w-none">
+      <p>{SITE.description}</p>
+      <h2>我们的目标</h2>
+      <p>
+        致力于用清晰、系统、可实践的方式讲解 IT 技术，帮助开发者少走弯路。
+        所有教程均为静态页面，加载迅速、易于检索。
+      </p>
+      <h2>内容方向</h2>
+      <ul>
+        <li>前端开发：HTML / CSS / JavaScript 与现代框架</li>
+        <li>后端开发：Node.js / Python / Go 与服务端架构</li>
+        <li>运维与 DevOps：容器化、CI/CD 与云原生</li>
+        <li>数据库：关系型与 NoSQL 的原理与调优</li>
+        <li>开发工具：提升效率的各类工具链</li>
+      </ul>
+      <h2>联系与反馈</h2>
+      <p>欢迎通过文章下方的评论区留言，或在 GitHub 上提交建议。</p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+// Giscus 评论：基于 GitHub Discussions，纯前端脚本接入。
+// 仅当配置了 PUBLIC_GISCUS_REPO 等变量时启用，否则显示占位提示。
+const repo = import.meta.env.PUBLIC_GISCUS_REPO;
+const repoId = import.meta.env.PUBLIC_GISCUS_REPO_ID;
+const category = import.meta.env.PUBLIC_GISCUS_CATEGORY;
+const categoryId = import.meta.env.PUBLIC_GISCUS_CATEGORY_ID;
+const lang = import.meta.env.PUBLIC_GISCUS_LANG || 'zh-CN';
+const enabled = Boolean(repo && repoId && categoryId);
+---
+
+{
+  enabled ? (
+    <div class="giscus mt-10" />
+  ) : (
+    <div class="mt-10 rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-400">
+      评论区（Giscus）· 配置 PUBLIC_GISCUS_* 环境变量后自动开启
+    </div>
+  )
+}
+
+{
+  enabled && (
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo={repo}
+      data-repo-id={repoId}
+      data-category={category}
+      data-category-id={categoryId}
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-lang={lang}
+      data-theme="light"
+      crossorigin="anonymous"
+      async
+    />
+  )
+}

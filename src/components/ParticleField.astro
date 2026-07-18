@@ -1,0 +1,194 @@
+---
+/**
+ * 全站粒子背景：一个固定视口的 canvas，覆盖整页。
+ * 任意 <canvas data-particle> 都会被下方脚本自动初始化（首页 Hero、分类/文档横幅复用同一套逻辑）。
+ */
+---
+
+<canvas data-particle class="particle-field" aria-hidden="true"></canvas>
+
+<script>
+  interface P {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    r: number;
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initParticleCanvas(canvas: HTMLCanvasElement) {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let w = 0;
+    let h = 0;
+    let dpr = 1;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = canvas.getBoundingClientRect();
+      w = Math.max(1, rect.width);
+      h = Math.max(1, rect.height);
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+
+    const COUNT = Math.max(36, Math.min(120, Math.floor((w * h) / 13000)));
+    const particles: P[] = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.8 + 0.8,
+    }));
+
+    const mouse = { x: -9999, y: -9999, vx: 0, vy: 0, active: false, _t: 0 as number };
+    const LINK = 130;
+    const MOUSE_R = 170;
+    let t = 0;
+
+    function updateMouse(clientX: number, clientY: number) {
+      const rect = canvas.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+      // 超出画布范围则忽略，避免跨画布误触发
+      if (x < -MOUSE_R || y < -MOUSE_R || x > w + MOUSE_R || y > h + MOUSE_R) {
+        mouse.active = false;
+        return;
+      }
+      mouse.vx = x - mouse.x;
+      mouse.vy = y - mouse.y;
+      mouse.x = x;
+      mouse.y = y;
+      mouse.active = true;
+      clearTimeout(mouse._t);
+      mouse._t = window.setTimeout(() => {
+        mouse.active = false;
+      }, 180);
+    }
+
+    function draw() {
+      t += 0.006;
+      ctx.clearRect(0, 0, w, h);
+
+      for (const p of particles) {
+        // 流体漂移：基于流场的缓慢运动（鼠标静止时呈现流体效果）
+        const angle = Math.sin(p.x * 0.003 + t) + Math.cos(p.y * 0.003 - t);
+        p.vx += Math.cos(angle) * 0.02;
+        p.vy += Math.sin(angle) * 0.02;
+
+        // 鼠标交互：粒子被光标带动，沿移动轨迹流动
+        if (mouse.active) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MOUSE_R * MOUSE_R) {
+            const d = Math.sqrt(d2) || 1;
+            const f = 1 - d / MOUSE_R;
+            p.vx += (dx / d) * f * 0.5 + mouse.vx * 0.04 * f;
+            p.vy += (dy / d) * f * 0.5 + mouse.vy * 0.04 * f;
+          }
+        }
+
+        p.vx *= 0.95;
+        p.vy *= 0.95;
+        const max = mouse.active ? 3.2 : 0.85;
+        const sp = Math.hypot(p.vx, p.vy);
+        if (sp > max) {
+          p.vx = (p.vx / sp) * max;
+          p.vy = (p.vy / sp) * max;
+        }
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x += w;
+        else if (p.x > w) p.x -= w;
+        if (p.y < 0) p.y += h;
+        else if (p.y > h) p.y -= h;
+      }
+
+      // 粒子间连线（星座网）
+      for (let i = 0; i < particles.length; i++) {
+        const a = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+          const b = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < LINK * LINK) {
+            const d = Math.sqrt(d2);
+            ctx.strokeStyle = `rgba(59,130,246,${0.13 * (1 - d / LINK)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+        ctx.fillStyle = 'rgba(59,130,246,0.7)';
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 光标处的光点与追随轨迹
+      if (mouse.active) {
+        ctx.fillStyle = 'rgba(96,165,250,0.95)';
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        for (const p of particles) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MOUSE_R * MOUSE_R) {
+            const d = Math.sqrt(d2);
+            ctx.strokeStyle = `rgba(96,165,250,${0.35 * (1 - d / MOUSE_R)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(mouse.x, mouse.y);
+            ctx.lineTo(p.x, p.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    if (reduceMotion) {
+      draw();
+    } else {
+      const step = () => {
+        draw();
+        requestAnimationFrame(step);
+      };
+      step();
+    }
+
+    // 暴露给全局鼠标事件
+    (canvas as any).__particle = { updateMouse, resize };
+  }
+
+  const canvases = Array.from(document.querySelectorAll<HTMLCanvasElement>('canvas[data-particle]'));
+  canvases.forEach(initParticleCanvas);
+
+  window.addEventListener(
+    'mousemove',
+    (e: MouseEvent) => {
+      for (const c of canvases) {
+        const inst = (c as any).__particle;
+        if (inst) inst.updateMouse(e.clientX, e.clientY);
+      }
+    },
+    { passive: true },
+  );
+
+  window.addEventListener('resize', () => {
+    for (const c of canvases) {
+      const inst = (c as any).__particle;
+      if (inst) inst.resize();
+    }
+  });
+</script>

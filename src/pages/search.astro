@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="全站搜索" description="搜索 51教程网 全站 IT 技术教程">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <h1 class="mb-2 text-3xl font-bold text-slate-900">全站搜索</h1>
+    <p class="mb-8 text-sm text-slate-500">支持中文模糊匹配，输入关键词查找教程。</p>
+    <div id="search"></div>
+    <p class="mt-4 text-xs text-slate-400">
+      提示：搜索索引在 <code>astro build</code> 后由 Pagefind 生成；本地开发预览需先执行一次构建。
+    </p>
+  </div>
+</BaseLayout>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" is:inline />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.PagefindUI) {
+      new window.PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        translations: {
+          placeholder: '输入关键词搜索教程…',
+          zero_results: '未找到与 “[query]” 相关的结果',
+          clear_search: '清除',
+        },
+      });
+    }
+  });
+</script>

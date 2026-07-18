@@ -1,0 +1,35 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import AdSlot from '../components/AdSlot.astro';
+import PageHero from '../components/PageHero.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  currentId?: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
+  heroIcon?: string;
+  heroTag?: string;
+}
+const { title, description, currentId, heroTitle, heroSubtitle, heroIcon, heroTag } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} type="article" darkHero={!!heroTitle}>
+  {
+    heroTitle && (
+      <PageHero title={heroTitle} subtitle={heroSubtitle} icon={heroIcon} tag={heroTag} />
+    )
+  }
+
+  <div class="relative mx-auto flex max-w-7xl gap-8 px-4 py-8">
+    <div class="hidden w-64 shrink-0 flex-col gap-6 lg:flex">
+      <Sidebar currentId={currentId} />
+      <AdSlot label="侧栏广告位" />
+    </div>
+    <div class="min-w-0 flex-1">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

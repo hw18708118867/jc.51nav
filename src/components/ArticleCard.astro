@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCategory } from '../utils/site.ts';
+
+interface Props {
+  entry: CollectionEntry<'tutorials'>;
+}
+const { entry } = Astro.props;
+const cat = getCategory(entry.data.category);
+const dateStr = entry.data.pubDate.toISOString().slice(0, 10);
+---
+
+<article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-200 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lg">
+  <a href={`/docs/${entry.id}`} class="flex flex-1 flex-col p-5">
+    <div class="mb-3 flex items-center gap-2 text-xs">
+      <span class="rounded-full bg-brand-50 px-2.5 py-1 font-medium text-brand-700">
+        {cat ? `${cat.icon} ${cat.name}` : entry.data.category}
+      </span>
+      <time datetime={dateStr} class="text-slate-400">{dateStr}</time>
+    </div>
+    <h3 class="mb-2 text-lg font-semibold text-slate-900 transition group-hover:text-brand-600">
+      {entry.data.title}
+    </h3>
+    <p class="line-clamp-3 flex-1 text-sm leading-relaxed text-slate-500">
+      {entry.data.description}
+    </p>
+    {
+      entry.data.tags.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-1.5">
+          {entry.data.tags.slice(0, 3).map((t) => (
+            <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-500">#{t}</span>
+          ))}
+        </div>
+      )
+    }
+  </a>
+</article>

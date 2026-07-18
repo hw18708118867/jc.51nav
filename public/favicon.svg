@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cfe0ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bg)"/>
+  <text x="32" y="27" text-anchor="middle" dominant-baseline="middle"
+        font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30"
+        font-weight="800" fill="url(#txt)" letter-spacing="2">51</text>
+  <g fill="#ffffff">
+    <path d="M19 47 L32 43 L45 47 L32 51 Z"/>
+    <path d="M29 51 L35 51 L34 56 L30 56 Z"/>
+    <circle cx="23" cy="48.5" r="1.8"/>
+  </g>
+  <line x1="32" y1="43" x2="23" y2="48" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M19 47 L32 43 L32 51 Z" fill="#ffffff" opacity="0.18"/>
+</svg>

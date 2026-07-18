@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import PageHero from '../../components/PageHero.astro';
+import { CATEGORIES, getCategory } from '../../utils/site.ts';
+
+export async function getStaticPaths() {
+  return CATEGORIES.map((c) => ({ params: { category: c.slug } }));
+}
+
+const { category } = Astro.params;
+const cat = getCategory(category!)!;
+
+const entries = await getCollection('tutorials', ({ data }) => !data.draft && data.category === category);
+entries.sort((a, b) => a.data.order - b.data.order || b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title={cat.name} description={cat.description} darkHero={true}>
+  <PageHero
+    title={cat.name}
+    subtitle={`${cat.description}（共 ${entries.length} 篇）`}
+    icon={cat.icon}
+    tag="分类"
+  />
+
+  <div class="relative mx-auto max-w-7xl px-4 py-8">
+    <Breadcrumb items={[{ name: '首页', href: '/' }, { name: cat.name }]} />
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      {
+        cat.subcategories.map((s) => (
+          <a
+            href={`/categories/${cat.slug}/${s.slug}`}
+            class="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600 transition hover:border-brand-300 hover:text-brand-600"
+          >
+            {s.name}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {entries.map((entry) => <ArticleCard entry={entry} />)}
+    </div>
+  </div>
+</BaseLayout>

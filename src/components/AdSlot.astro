@@ -1,0 +1,28 @@
+---
+// AdSense 广告位：仅当配置了 PUBLIC_ADSENSE_CLIENT 时才渲染真实广告单元，
+// 未配置时完全不显示（隐藏），接入 AdSense 后自动出现。
+interface Props {
+  slot?: string; // 广告位 ID（AdSense 后台获取）
+  format?: 'auto' | 'rectangle' | 'horizontal' | 'vertical';
+  class?: string;
+}
+const { slot = '', format = 'auto', class: cls = '' } = Astro.props;
+
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const enabled = Boolean(client);
+---
+
+{
+  enabled && (
+    <div class={`my-6 overflow-hidden rounded-xl ${cls}`}>
+      <ins
+        class="adsbygoogle block"
+        style="display:block"
+        data-ad-client={client}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      />
+    </div>
+  )
+}

@@ -1,0 +1,92 @@
+---
+import { getCollection, render } from 'astro:content';
+import DocLayout from '../../layouts/DocLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import ViewCounter from '../../components/ViewCounter.astro';
+import Comments from '../../components/Comments.astro';
+import { getCategory } from '../../utils/site.ts';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tutorials', ({ data }) => !data.draft);
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const cat = getCategory(entry.data.category);
+
+// 同分类内排序，用于上一篇/下一篇
+const sameCat = (await getCollection('tutorials', ({ data }) => !data.draft && data.category === entry.data.category))
+  .sort((a, b) => a.data.order - b.data.order || b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const idx = sameCat.findIndex((e) => e.id === entry.id);
+const prev = idx > 0 ? sameCat[idx - 1] : null;
+const next = idx < sameCat.length - 1 ? sameCat[idx + 1] : null;
+
+const dateStr = entry.data.pubDate.toISOString().slice(0, 10);
+---
+
+<DocLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  currentId={entry.id}
+  heroTitle={cat?.name ?? entry.data.category}
+  heroSubtitle={cat?.description}
+  heroIcon={cat?.icon}
+  heroTag="教程"
+>
+  <Breadcrumb
+    items={[
+      { name: '首页', href: '/' },
+      { name: cat?.name ?? entry.data.category, href: `/categories/${entry.data.category}` },
+      { name: entry.data.title },
+    ]}
+  />
+
+  <header class="mt-4 border-b border-slate-100 pb-5">
+    <h1 class="text-3xl font-bold leading-tight text-slate-900">{entry.data.title}</h1>
+    <p class="mt-3 text-slate-500">{entry.data.description}</p>
+    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-400">
+      <time datetime={dateStr}>{dateStr} 发布</time>
+      {entry.data.updatedDate && <span>· 更新于 {entry.data.updatedDate.toISOString().slice(0, 10)}</span>}
+      <ViewCounter />
+    </div>
+  </header>
+
+  <!-- 文首广告位 -->
+  <AdSlot label="文首广告位" />
+
+  <article data-pagefind-body class="prose prose-slate max-w-none py-6 prose-headings:scroll-mt-20">
+    <Content />
+  </article>
+
+  <!-- 文中广告位 -->
+  <AdSlot label="文中广告位" />
+
+  <!-- 上一篇 / 下一篇 -->
+  <nav class="mt-8 grid gap-4 border-t border-slate-100 pt-6 sm:grid-cols-2">
+    {
+      prev ? (
+        <a href={`/docs/${prev.id}`} class="group rounded-xl border border-slate-200 p-4 transition hover:border-brand-300 hover:shadow">
+          <span class="text-xs text-slate-400">← 上一篇</span>
+          <p class="mt-1 font-medium text-slate-700 group-hover:text-brand-600">{prev.data.title}</p>
+        </a>
+      ) : <span />
+    }
+    {
+      next ? (
+        <a href={`/docs/${next.id}`} class="group rounded-xl border border-slate-200 p-4 text-right transition hover:border-brand-300 hover:shadow">
+          <span class="text-xs text-slate-400">下一篇 →</span>
+          <p class="mt-1 font-medium text-slate-700 group-hover:text-brand-600">{next.data.title}</p>
+        </a>
+      ) : <span />
+    }
+  </nav>
+
+  <!-- 页脚广告位 + 评论 -->
+  <AdSlot label="页脚广告位" />
+  <Comments />
+</DocLayout>
