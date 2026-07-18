@@ -1,14 +1,61 @@
 ---
-// 阅读量统计：借助第三方服务「不蒜子 busuanzi」，纯前端脚本，无需自建后端。
-// 脚本仅在客户端加载，统计 PV/UV。
+// 阅读量统计：使用 GoatCounter（隐私友好、无需自建后端）。
+// 关键点：
+//   1) 真实计数：count.js 按当前页面 URL 路径记录每次访问，每篇文章（独立路径）单独计数；
+//   2) 页面显示：GoatCounter 自带公开计数器接口 counter/<路径>.json，返回该路径的真实阅读量，
+//      无需 API token（但需在后台开启 "Allow adding visitor counts on your website"）。
+// 注意：计数器结果有最长约 4 小时的缓存，新访问不会立即显示。
+import { SITE } from '../utils/site';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+const code = SITE.goatcounterCode;
 ---
 
-<span class="inline-flex items-center gap-1 text-sm text-slate-400" id="busuanzi_container_page_pv">
+<span
+  class="inline-flex items-center gap-1 text-sm text-slate-400"
+  data-view-counter
+  data-path={`/docs/${slug}`}
+>
   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
     <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
   </svg>
-  阅读量 <span id="busuanzi_value_page_pv" class="font-medium text-slate-500">--</span>
+  阅读量 <span data-view-count class="font-medium text-slate-500">--</span>
 </span>
 
-<script is:inline src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+{
+  code && (
+    <>
+      {/* 真实记录当前文章的访问（按 URL 路径单独计数） */}
+      <script
+        is:inline
+        data-goatcounter={`https://${code}.goatcounter.com/count`}
+        async
+        src="//gc.zgo.at/count.js"
+      ></script>
+
+      {/* 读取并显示该路径的真实阅读量 */}
+      <script is:inline define:vars={{ code }}>
+        (function () {
+          var base = 'https://' + code + '.goatcounter.com';
+          // 用当前页面真实路径，确保和 count.js 记录的是同一条路径
+          var path = location.pathname;
+          fetch(base + '/counter/' + encodeURIComponent(path) + '.json', {
+            mode: 'cors',
+            credentials: 'omit',
+          })
+            .then(function (r) { return r.json(); })
+            .then(function (j) {
+              var raw = String((j && j.count != null) ? j.count : '').replace(/\D/g, '');
+              var out = document.querySelector('[data-view-counter] [data-view-count]');
+              if (out && raw) out.textContent = Number(raw).toLocaleString('zh-CN');
+            })
+            .catch(function () {});
+        })();
+      </script>
+    </>
+  )
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="40" y="50" width="400" height="140" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="56" y="74" font-size="14" fill="#1d4ed8">flex 容器（display: flex）</text>
+  <rect x="64" y="96" width="90" height="78" rx="6" fill="#3b82f6"/>
+  <rect x="170" y="96" width="90" height="78" rx="6" fill="#60a5fa"/>
+  <rect x="276" y="96" width="90" height="78" rx="6" fill="#93c5fd"/>
+  <g stroke="#0f172a" stroke-width="2">
+    <line x1="64" y1="222" x2="356" y2="222"/>
+    <polygon points="356,222 346,217 346,227" fill="#0f172a"/>
+  </g>
+  <text x="170" y="244" font-size="14" fill="#0f172a">主轴 main axis（默认水平，justify-content 控制）</text>
+  <g stroke="#db2777" stroke-width="2">
+    <line x1="412" y1="70" x2="412" y2="190"/>
+    <polygon points="412,190 407,180 417,180" fill="#db2777"/>
+  </g>
+  <text x="356" y="135" font-size="13" fill="#db2777">交叉轴</text>
+</svg>

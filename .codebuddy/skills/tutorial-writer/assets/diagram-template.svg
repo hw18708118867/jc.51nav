@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="760" height="420" rx="16" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#0f172a">一张图看懂 <主题></text>
+
+  <!-- 示例：一个圆角卡片框 -->
+  <rect x="60" y="90" width="300" height="200" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="80" y="125" font-size="15" fill="#334155">内层 / content</text>
+  <text x="80" y="160" font-size="14" fill="#64748b">用注释和箭头标出结构关系</text>
+
+  <!-- 示例：一个标注箭头 -->
+  <line x1="360" y1="190" x2="470" y2="190" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="480" y="195" font-size="14" fill="#475569">说明文字</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 底部一句话结论 -->
+  <text x="40" y="380" font-size="14" fill="#64748b">关键结论：<用一句话点出图里最重要的关系>。</text>
+</svg>

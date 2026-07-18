@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 340" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="16" y="16" width="448" height="308" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="32" y="40" font-size="15" fill="#64748b">margin（外边距 · 透明，不显示颜色）</text>
+  <rect x="70" y="70" width="340" height="200" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="10"/>
+  <text x="80" y="92" font-size="14" fill="#1d4ed8">border（边框，有颜色有粗细）</text>
+  <rect x="110" y="104" width="260" height="132" rx="4" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="120" y="126" font-size="14" fill="#1e40af">padding（内边距，透明）</text>
+  <rect x="150" y="138" width="180" height="64" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="186" y="175" font-size="14" fill="#0f172a">content（内容）</text>
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+    <path d="M410 120 L444 120"/>
+    <path d="M410 170 L444 170"/>
+  </g>
+  <text x="300" y="300" font-size="13" fill="#64748b">从外到内：margin → border → padding → content</text>
+</svg>

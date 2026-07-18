@@ -7,6 +7,10 @@ export const SITE = {
   url: 'https://jc.51nav.com',
   author: '51教程网',
   lang: 'zh-CN',
+  // GoatCounter 子域名（如 'jc51nav'）。用于真实阅读量统计（按每篇文章 URL 单独计数）。
+  // 留空则阅读量显示 '--' 且不发送统计。
+  // 使用前需在 GoatCounter 后台 Settings 开启 "Allow adding visitor counts on your website"。
+  goatcounterCode: '51nav',
 };
 
 export interface SubCategory {
@@ -29,7 +33,8 @@ export const CATEGORIES: Category[] = [
     description: 'HTML、CSS、JavaScript 及主流前端框架的实战教程。',
     icon: '🎨',
     subcategories: [
-      { slug: 'html-css', name: 'HTML / CSS' },
+      { slug: 'html', name: 'HTML' },
+      { slug: 'css', name: 'CSS' },
       { slug: 'javascript', name: 'JavaScript' },
       { slug: 'frameworks', name: '前端框架' },
       { slug: 'engineering', name: '工程化' },
@@ -42,6 +47,7 @@ export const CATEGORIES: Category[] = [
     icon: '⚙️',
     subcategories: [
       { slug: 'nodejs', name: 'Node.js' },
+      { slug: 'php', name: 'PHP' },
       { slug: 'python', name: 'Python' },
       { slug: 'golang', name: 'Go' },
       { slug: 'api', name: 'API 设计' },
@@ -93,6 +99,15 @@ export const CATEGORIES: Category[] = [
       { slug: 'pentest', name: '渗透测试' },
       { slug: 'crypto', name: '密码学' },
       { slug: 'compliance', name: '安全合规' },
+    ],
+  },
+  {
+    slug: 'linux',
+    name: 'Linux 操作系统',
+    description: '从 Linux 安装、命令、权限到网络、服务、防火墙与容器化的系统管理实战。',
+    icon: '🐧',
+    subcategories: [
+      { slug: 'linux', name: 'Linux 系统管理' },
     ],
   },
 ];

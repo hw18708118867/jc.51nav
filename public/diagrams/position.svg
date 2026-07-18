@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="40" y="50" width="400" height="200" rx="10" fill="#f8fafc" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="56" y="74" font-size="14" fill="#1d4ed8">父元素 position: relative（定位上下文）</text>
+  <rect x="70" y="100" width="120" height="60" rx="6" fill="#e2e8f0"/>
+  <text x="100" y="135" font-size="13" fill="#475569">普通内容</text>
+  <rect x="320" y="92" width="92" height="50" rx="6" fill="#3b82f6"/>
+  <text x="332" y="122" font-size="13" fill="#fff">角标</text>
+  <g stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3">
+    <line x1="412" y1="92" x2="440" y2="50"/>
+    <line x1="320" y1="92" x2="40" y2="50"/>
+  </g>
+  <text x="60" y="200" font-size="13" fill="#64748b">absolute 子元素以最近的「定位祖先」为基准定位</text>
+  <text x="60" y="222" font-size="13" fill="#64748b">本例基准就是这张虚线边框的父元素</text>
+</svg>

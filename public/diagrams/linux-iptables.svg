@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="760" height="420" fill="#fbfdff" rx="16"/>
+  <text x="380" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">iptables 数据包处理流程</text>
+
+  <!-- 网卡入口 -->
+  <rect x="40" y="180" width="96" height="56" rx="10" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <text x="88" y="204" text-anchor="middle" font-size="14" fill="#0369a1">网卡收包</text>
+  <text x="88" y="222" text-anchor="middle" font-size="12" fill="#0369a1">NIC</text>
+
+  <!-- PREROUTING -->
+  <rect x="170" y="180" width="110" height="56" rx="10" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="225" y="204" text-anchor="middle" font-size="14" font-weight="600" fill="#854d0e">PREROUTING</text>
+  <text x="225" y="222" text-anchor="middle" font-size="11" fill="#854d0e">nat 表</text>
+
+  <!-- 路由判断 -->
+  <rect x="320" y="180" width="100" height="56" rx="10" fill="#ede9fe" stroke="#a78bfa" stroke-width="2"/>
+  <text x="370" y="204" text-anchor="middle" font-size="13" fill="#6d28d9">路由判断</text>
+  <text x="370" y="222" text-anchor="middle" font-size="11" fill="#6d28d9">本机?</text>
+
+  <!-- INPUT -->
+  <rect x="450" y="90" width="110" height="56" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="505" y="114" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">INPUT</text>
+  <text x="505" y="132" text-anchor="middle" font-size="11" fill="#166534">filter 表</text>
+
+  <!-- 本机 -->
+  <rect x="600" y="90" width="110" height="56" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+  <text x="655" y="114" text-anchor="middle" font-size="14" fill="#9d174d">本机进程</text>
+  <text x="655" y="132" text-anchor="middle" font-size="11" fill="#9d174d">应用/服务</text>
+
+  <!-- FORWARD -->
+  <rect x="450" y="180" width="110" height="56" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="505" y="204" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">FORWARD</text>
+  <text x="505" y="222" text-anchor="middle" font-size="11" fill="#166534">filter 表</text>
+
+  <!-- OUTPUT -->
+  <rect x="450" y="280" width="110" height="56" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="505" y="304" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">OUTPUT</text>
+  <text x="505" y="322" text-anchor="middle" font-size="11" fill="#166534">filter 表</text>
+
+  <!-- POSTROUTING -->
+  <rect x="300" y="280" width="120" height="56" rx="10" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="360" y="304" text-anchor="middle" font-size="14" font-weight="600" fill="#854d0e">POSTROUTING</text>
+  <text x="360" y="322" text-anchor="middle" font-size="11" fill="#854d0e">nat 表</text>
+
+  <!-- 网卡出口 -->
+  <rect x="120" y="280" width="96" height="56" rx="10" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <text x="168" y="304" text-anchor="middle" font-size="14" fill="#0369a1">网卡发包</text>
+  <text x="168" y="322" text-anchor="middle" font-size="12" fill="#0369a1">NIC</text>
+
+  <!-- 箭头 -->
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M136 208 H168"/>
+    <path d="M280 208 H316"/>
+    <path d="M420 208 V118 H444"/>
+    <path d="M560 118 H596"/>
+    <path d="M420 208 H444"/>
+    <path d="M560 208 H680"/>
+    <path d="M420 308 V288 H444"/>
+    <path d="M560 308 H380"/>
+    <path d="M240 308 V296 H296"/>
+    <path d="M216 308 H136"/>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <text x="380" y="398" text-anchor="middle" font-size="12" fill="#64748b">入站先过 PREROUTING；去本机走 INPUT，路过走 FORWARD；出站前过 POSTROUTING</text>
+</svg>

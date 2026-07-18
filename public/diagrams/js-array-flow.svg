@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="760" height="420" rx="16" fill="#ffffff"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#0f172a">一张图看懂数组方法的数据流</text>
+
+  <!-- 原始数组 -->
+  <rect x="40" y="150" width="120" height="120" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="60" y="180" font-size="14" font-weight="600" fill="#334155">原数组</text>
+  <text x="60" y="208" font-size="13" fill="#64748b">[1,2,3,4]</text>
+  <text x="60" y="232" font-size="13" fill="#64748b">[5,6]</text>
+
+  <!-- map -->
+  <rect x="200" y="150" width="120" height="120" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="222" y="180" font-size="14" font-weight="600" fill="#1e40af">.map(×2)</text>
+  <text x="222" y="208" font-size="13" fill="#475569">[2,4,6,8]</text>
+  <text x="222" y="232" font-size="13" fill="#475569">[10,12]</text>
+
+  <!-- filter -->
+  <rect x="360" y="150" width="120" height="120" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="380" y="180" font-size="14" font-weight="600" fill="#166534">.filter(&gt;5)</text>
+  <text x="380" y="208" font-size="13" fill="#475569">[6,8]</text>
+  <text x="380" y="232" font-size="13" fill="#475569">[10,12]</text>
+
+  <!-- reduce -->
+  <rect x="520" y="150" width="120" height="120" rx="12" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="540" y="180" font-size="14" font-weight="600" fill="#c2410c">.reduce(+)</text>
+  <text x="540" y="212" font-size="13" fill="#475569">累加 →</text>
+  <text x="540" y="236" font-size="14" font-weight="600" fill="#9a3412">36</text>
+
+  <!-- 箭头 -->
+  <line x1="160" y1="210" x2="198" y2="210" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="320" y1="210" x2="358" y2="210" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="480" y1="210" x2="518" y2="210" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <text x="40" y="330" font-size="14" fill="#475569">每个方法都"吃进一个数组、吐出一个新数组"（reduce 吐出单个值），</text>
+  <text x="40" y="356" font-size="14" fill="#475569">可以像管道一样串起来：<tspan fill="#0f172a" font-family="monospace">arr.map(...).filter(...).reduce(...)</tspan></text>
+
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="398" font-size="13" fill="#64748b">关键结论：map/filter/reduce 都不改原数组，而是返回新数组，链式调用既清晰又不易出错。</text>
+</svg>

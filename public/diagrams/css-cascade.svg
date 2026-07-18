@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="30" y="232" width="360" height="42" rx="6" fill="#bfdbfe" stroke="#93c5fd"/>
+  <text x="44" y="258" font-size="14" fill="#1e40af">元素选择器（如 div）→ 权重最低</text>
+  <rect x="70" y="172" width="280" height="42" rx="6" fill="#60a5fa"/>
+  <text x="84" y="198" font-size="14" fill="#fff">类 / 伪类 / 属性（.btn）→ 中等</text>
+  <rect x="110" y="112" width="200" height="42" rx="6" fill="#3b82f6"/>
+  <text x="124" y="138" font-size="14" fill="#fff">ID（#main）→ 高</text>
+  <rect x="150" y="52" width="120" height="42" rx="6" fill="#1d4ed8"/>
+  <text x="164" y="78" font-size="13" fill="#fff">内联 style → 最高</text>
+  <text x="30" y="292" font-size="12" fill="#64748b">越往上权重越高，高权重规则会覆盖低权重规则</text>
+</svg>

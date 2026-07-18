@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="760" height="420" rx="16" fill="#ffffff"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#0f172a">一张图看懂事件循环</text>
+
+  <!-- 调用栈 -->
+  <rect x="60" y="90" width="200" height="150" rx="12" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+  <text x="80" y="118" font-size="15" font-weight="600" fill="#b91c1c">调用栈 Call Stack</text>
+  <rect x="80" y="132" width="160" height="26" rx="6" fill="#fee2e2"/>
+  <text x="92" y="150" font-size="12" fill="#991b1b">setTimeout 回调</text>
+  <rect x="80" y="166" width="160" height="26" rx="6" fill="#fee2e2"/>
+  <text x="92" y="184" font-size="12" fill="#991b1b">fn()</text>
+  <rect x="80" y="200" width="160" height="26" rx="6" fill="#fee2e2"/>
+  <text x="92" y="218" font-size="12" fill="#991b1b">main()</text>
+
+  <!-- Web APIs -->
+  <rect x="300" y="90" width="180" height="150" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="318" y="118" font-size="15" font-weight="600" fill="#1e40af">Web APIs</text>
+  <text x="318" y="148" font-size="13" fill="#475569">定时器 / 网络请求</text>
+  <text x="318" y="172" font-size="13" fill="#475569">在这里"等着"，</text>
+  <text x="318" y="194" font-size="13" fill="#475569">不阻塞主线程</text>
+
+  <!-- 回调队列 -->
+  <rect x="520" y="90" width="180" height="150" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="538" y="118" font-size="15" font-weight="600" fill="#166534">回调队列 Queue</text>
+  <text x="538" y="148" font-size="13" fill="#475569">计时到了 / 请求</text>
+  <text x="538" y="172" font-size="13" fill="#475569">回来，排队等</text>
+  <text x="538" y="194" font-size="13" fill="#475569">栈空了再进栈</text>
+
+  <!-- 流程箭头 -->
+  <line x1="260" y1="165" x2="298" y2="165" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="480" y1="165" x2="518" y2="165" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M520,250 C520,300 200,300 200,250" fill="none" stroke="#a78bfa" stroke-width="2" marker-end="url(#ar2)"/>
+  <text x="330" y="318" font-size="13" fill="#7c3aed">事件循环：栈空了，才把队列里的回调搬进栈执行</text>
+
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="ar2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="392" font-size="13" fill="#64748b">关键结论：异步任务先丢给 Web APIs，完成后进队列，等调用栈清空才被执行——所以 setTimeout 不会准时卡住页面。</text>
+</svg>

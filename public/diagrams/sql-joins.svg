@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="760" height="420" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="380" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">SQL JOIN 三种连接方式</text>
+  <text x="380" y="58" text-anchor="middle" font-size="13" fill="#64748b">左表 A（如 users） · 右表 B（如 orders）</text>
+
+  <!-- 左圆 A -->
+  <circle cx="180" cy="230" r="110" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <text x="180" y="226" text-anchor="middle" font-size="16" font-weight="700" fill="#1d4ed8">表 A</text>
+  <text x="180" y="248" text-anchor="middle" font-size="12" fill="#1e40af">左表全部</text>
+
+  <!-- 右圆 B -->
+  <circle cx="450" cy="230" r="110" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+  <text x="450" y="226" text-anchor="middle" font-size="16" font-weight="700" fill="#15803d">表 B</text>
+  <text x="450" y="248" text-anchor="middle" font-size="12" fill="#166534">右表全部</text>
+
+  <!-- INNER：交集 -->
+  <text x="315" y="150" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">INNER JOIN</text>
+  <text x="315" y="170" text-anchor="middle" font-size="11" fill="#64748b">取交集（两边都匹配）</text>
+
+  <!-- LEFT：左全 -->
+  <text x="120" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">LEFT JOIN</text>
+  <text x="120" y="380" text-anchor="middle" font-size="11" fill="#64748b">保左全，右空填 NULL</text>
+
+  <!-- RIGHT：右全 -->
+  <text x="510" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">RIGHT JOIN</text>
+  <text x="510" y="380" text-anchor="middle" font-size="11" fill="#64748b">保右全，左空填 NULL</text>
+
+  <!-- 连接条件说明 -->
+  <rect x="250" y="392" width="260" height="22" rx="11" fill="#f1f5f9"/>
+  <text x="380" y="407" text-anchor="middle" font-size="11" fill="#475569">连接条件：A.id = B.user_id</text>
+</svg>
