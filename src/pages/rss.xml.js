@@ -10,6 +10,8 @@ export async function GET(context) {
     title: SITE.title,
     description: SITE.description,
     site: context.site,
+    // 浏览器打开 /rss.xml 时用此 XSL 渲染成美观的订阅页；订阅器仍按 XML 读取，互不影响。
+    stylesheet: '/rss.xsl',
     items: entries.map((entry) => ({
       title: entry.data.title,
       description: entry.data.description,

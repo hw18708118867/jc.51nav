@@ -45,6 +45,7 @@ jobs:
           PUBLIC_GISCUS_CATEGORY: ${{ vars.PUBLIC_GISCUS_CATEGORY || secrets.PUBLIC_GISCUS_CATEGORY }}
           PUBLIC_GISCUS_CATEGORY_ID: ${{ vars.PUBLIC_GISCUS_CATEGORY_ID || secrets.PUBLIC_GISCUS_CATEGORY_ID }}
           PUBLIC_GISCUS_LANG: ${{ vars.PUBLIC_GISCUS_LANG || secrets.PUBLIC_GISCUS_LANG }}
+          PUBLIC_GSC_VERIFICATION: ${{ vars.PUBLIC_GSC_VERIFICATION || secrets.PUBLIC_GSC_VERIFICATION }}
         run: npm run build
 
       - name: Upload artifact

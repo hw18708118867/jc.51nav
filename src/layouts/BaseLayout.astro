@@ -16,6 +16,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
 
 const gaId = import.meta.env.PUBLIC_GA_ID;
 const adsClient = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION;
 ---
 
 <!doctype html>
@@ -34,6 +35,11 @@ const adsClient = import.meta.env.PUBLIC_ADSENSE_CLIENT;
     <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+    {
+      gscVerification && (
+        <meta name="google-site-verification" content={gscVerification} />
+      )
+    }
   </head>
   <body class:list={['flex min-h-screen flex-col', { 'has-dark-hero': darkHero }]}>
     <Header />
