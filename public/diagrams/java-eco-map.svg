@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="760" height="460" rx="20" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="460" rx="20" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+
+  <text x="380" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">Java 生态常见高危组件风险地图</text>
+  <text x="380" y="62" text-anchor="middle" font-size="13" fill="#64748b">从入口到基础设施，每一层都有经典雷区</text>
+
+  <!-- 入口层 -->
+  <rect x="40" y="90" width="680" height="72" rx="14" fill="#fef2f2" stroke="#fecaca" stroke-width="2"/>
+  <text x="60" y="116" font-size="14" font-weight="700" fill="#b91c1c">入口层 · Web 框架 / 权限</text>
+  <rect x="60" y="128" width="120" height="26" rx="13" fill="#fff" stroke="#fca5a5"/><text x="120" y="146" text-anchor="middle" font-size="13" fill="#b91c1c">Struts2 / OGNL</text>
+  <rect x="200" y="128" width="130" height="26" rx="13" fill="#fff" stroke="#fca5a5"/><text x="265" y="146" text-anchor="middle" font-size="13" fill="#b91c1c">Spring MVC</text>
+  <rect x="350" y="128" width="120" height="26" rx="13" fill="#fff" stroke="#fca5a5"/><text x="410" y="146" text-anchor="middle" font-size="13" fill="#b91c1c">Shiro</text>
+  <rect x="490" y="128" width="150" height="26" rx="13" fill="#fff" stroke="#fca5a5"/><text x="565" y="146" text-anchor="middle" font-size="13" fill="#b91c1c">Spring4Shell</text>
+
+  <!-- 数据层 -->
+  <rect x="40" y="178" width="680" height="72" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+  <text x="60" y="204" font-size="14" font-weight="700" fill="#b45309">数据层 · JSON / 序列化</text>
+  <rect x="60" y="216" width="120" height="26" rx="13" fill="#fff" stroke="#fcd34d"/><text x="120" y="234" text-anchor="middle" font-size="13" fill="#b45309">Fastjson</text>
+  <rect x="200" y="216" width="120" height="26" rx="13" fill="#fff" stroke="#fcd34d"/><text x="260" y="234" text-anchor="middle" font-size="13" fill="#b45309">Jackson</text>
+  <rect x="340" y="216" width="120" height="26" rx="13" fill="#fff" stroke="#fcd34d"/><text x="400" y="234" text-anchor="middle" font-size="13" fill="#b45309">XStream</text>
+  <rect x="480" y="216" width="160" height="26" rx="13" fill="#fff" stroke="#fcd34d"/><text x="560" y="234" text-anchor="middle" font-size="13" fill="#b45309">原生反序列化</text>
+
+  <!-- 基础设施层 -->
+  <rect x="40" y="266" width="680" height="72" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="60" y="292" font-size="14" font-weight="700" fill="#1d4ed8">基础设施层 · 日志 / 工具</text>
+  <rect x="60" y="304" width="120" height="26" rx="13" fill="#fff" stroke="#93c5fd"/><text x="120" y="322" text-anchor="middle" font-size="13" fill="#1d4ed8">Log4j</text>
+  <rect x="200" y="304" width="170" height="26" rx="13" fill="#fff" stroke="#93c5fd"/><text x="285" y="322" text-anchor="middle" font-size="13" fill="#1d4ed8">CommonsCollections</text>
+  <rect x="390" y="304" width="120" height="26" rx="13" fill="#fff" stroke="#93c5fd"/><text x="450" y="322" text-anchor="middle" font-size="13" fill="#1d4ed8">JNDI / RMI</text>
+  <rect x="530" y="304" width="160" height="26" rx="13" fill="#fff" stroke="#93c5fd"/><text x="610" y="322" text-anchor="middle" font-size="13" fill="#1d4ed8">TemplatesImpl</text>
+
+  <!-- 中间件层 -->
+  <rect x="40" y="354" width="680" height="72" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="60" y="380" font-size="14" font-weight="700" fill="#15803d">中间件层 · 服务器 / 容器</text>
+  <rect x="60" y="392" width="140" height="26" rx="13" fill="#fff" stroke="#86efac"/><text x="130" y="410" text-anchor="middle" font-size="13" fill="#15803d">WebLogic</text>
+  <rect x="220" y="392" width="140" height="26" rx="13" fill="#fff" stroke="#86efac"/><text x="290" y="410" text-anchor="middle" font-size="13" fill="#15803d">Tomcat</text>
+  <rect x="380" y="392" width="150" height="26" rx="13" fill="#fff" stroke="#86efac"/><text x="455" y="410" text-anchor="middle" font-size="13" fill="#15803d">依赖供应链</text>
+  <rect x="550" y="392" width="140" height="26" rx="13" fill="#fff" stroke="#86efac"/><text x="620" y="410" text-anchor="middle" font-size="13" fill="#15803d">SCA 体检</text>
+</svg>
