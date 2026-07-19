@@ -35,6 +35,16 @@ jobs:
         run: npm ci
 
       - name: Build with Astro (含 pagefind 搜索索引)
+        # 显式注入构建期环境变量（PUBLIC_ 前缀会被 Astro 内联到前端）。
+        # 无论你在仓库 Settings 里存为 Variables 还是 Secrets 都能生效（|| 取其一）。
+        env:
+          PUBLIC_GA_ID: ${{ vars.PUBLIC_GA_ID || secrets.PUBLIC_GA_ID }}
+          PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT || secrets.PUBLIC_ADSENSE_CLIENT }}
+          PUBLIC_GISCUS_REPO: ${{ vars.PUBLIC_GISCUS_REPO || secrets.PUBLIC_GISCUS_REPO }}
+          PUBLIC_GISCUS_REPO_ID: ${{ vars.PUBLIC_GISCUS_REPO_ID || secrets.PUBLIC_GISCUS_REPO_ID }}
+          PUBLIC_GISCUS_CATEGORY: ${{ vars.PUBLIC_GISCUS_CATEGORY || secrets.PUBLIC_GISCUS_CATEGORY }}
+          PUBLIC_GISCUS_CATEGORY_ID: ${{ vars.PUBLIC_GISCUS_CATEGORY_ID || secrets.PUBLIC_GISCUS_CATEGORY_ID }}
+          PUBLIC_GISCUS_LANG: ${{ vars.PUBLIC_GISCUS_LANG || secrets.PUBLIC_GISCUS_LANG }}
         run: npm run build
 
       - name: Upload artifact
