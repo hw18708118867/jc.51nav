@@ -13,9 +13,27 @@ const categoriesWithCount = CATEGORIES.map((c) => ({
   ...c,
   count: entries.filter((e) => e.data.category === c.slug).length,
 }));
+
+// ===== SEO 结构化数据（JSON-LD）：WebSite + 站内搜索框 =====
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  inLanguage: SITE.lang,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: `${SITE.url}/search?q={search_term_string}` },
+    'query-input': 'required name=search_term_string',
+  },
+};
 ---
 
 <BaseLayout>
+  <!-- SEO 结构化数据：站点 + 站内搜索框 -->
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
   <!-- 全站粒子背景（固定视口，贯穿整页） -->
   <ParticleField />
 

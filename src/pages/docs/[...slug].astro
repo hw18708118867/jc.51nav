@@ -5,7 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import ViewCounter from '../../components/ViewCounter.astro';
 import Comments from '../../components/Comments.astro';
-import { getCategory } from '../../utils/site.ts';
+import { getCategory, SITE } from '../../utils/site.ts';
 
 export async function getStaticPaths() {
   const entries = await getCollection('tutorials', ({ data }) => !data.draft);
@@ -29,6 +29,41 @@ const prev = idx > 0 ? sameSeries[idx - 1] : null;
 const next = idx < sameSeries.length - 1 ? sameSeries[idx + 1] : null;
 
 const dateStr = entry.data.pubDate.toISOString().slice(0, 10);
+
+// ===== SEO 结构化数据（JSON-LD）：Article + BreadcrumbList =====
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const pubISO = entry.data.pubDate.toISOString();
+const modISO = entry.data.updatedDate ? entry.data.updatedDate.toISOString() : pubISO;
+const catName = cat?.name ?? entry.data.category;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: entry.data.title,
+  description: entry.data.description,
+  datePublished: pubISO,
+  dateModified: modISO,
+  inLanguage: SITE.lang,
+  author: { '@type': 'Organization', name: SITE.author },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    logo: { '@type': 'ImageObject', url: new URL('/favicon.svg', SITE.url).href },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  articleSection: catName,
+  keywords: entry.data.tags.join(', '),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', SITE.url).href },
+    { '@type': 'ListItem', position: 2, name: catName, item: new URL(`/categories/${entry.data.category}`, SITE.url).href },
+    { '@type': 'ListItem', position: 3, name: entry.data.title, item: canonical },
+  ],
+};
 ---
 
 <DocLayout
@@ -49,6 +84,10 @@ const dateStr = entry.data.pubDate.toISOString().slice(0, 10);
       { name: entry.data.title },
     ]}
   />
+
+  <!-- SEO 结构化数据：文章 + 面包屑 -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <header class="mt-4 border-b border-slate-100 pb-5">
     <h1 class="text-3xl font-bold leading-tight text-slate-900">{entry.data.title}</h1>
