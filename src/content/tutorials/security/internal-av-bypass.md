@@ -5,6 +5,7 @@ category: security
 subcategory: internal
 tags: ['免杀', 'AV绕过', 'EDR', '分离加载', '反射注入']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

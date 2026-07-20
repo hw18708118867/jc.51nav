@@ -5,6 +5,7 @@ category: backend
 subcategory: php
 tags: ['PHP', '表单', 'GET', 'POST', '页面跳转']
 pubDate: 2026-07-16
+updatedDate: 2026-07-16
 order: 2
 ---
 

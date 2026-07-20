@@ -5,6 +5,7 @@ category: linux
 subcategory: linux
 tags: ['Linux', '软件包', 'rpm', 'yum', 'apt']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 5
 ---
 

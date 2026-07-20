@@ -5,6 +5,7 @@ category: security
 subcategory: internal
 tags: ['域渗透', 'Kerberos', 'Kerberoasting', '黄金票据', 'BloodHound']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 4
 ---
 

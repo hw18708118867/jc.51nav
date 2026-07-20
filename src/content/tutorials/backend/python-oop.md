@@ -5,6 +5,7 @@ category: backend
 subcategory: python
 tags: ['Python', '面向对象', '类', '封装', '继承']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

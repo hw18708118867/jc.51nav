@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['文件包含', 'LFI', 'RFI', 'Web安全']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 10
 ---
 

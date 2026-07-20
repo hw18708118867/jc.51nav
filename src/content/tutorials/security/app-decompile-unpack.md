@@ -5,6 +5,7 @@ category: security
 subcategory: mobile-pentest
 tags: ['APP安全', '反编译', '脱壳', 'jadx', 'Frida', 'smali']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 6
 ---
 

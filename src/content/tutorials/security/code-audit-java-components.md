@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['Java', '反序列化', 'Fastjson', 'Log4j2', 'Shiro']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 8
 ---
 

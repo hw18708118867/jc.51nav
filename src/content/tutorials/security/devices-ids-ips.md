@@ -5,6 +5,7 @@ category: security
 subcategory: devices
 tags: ['IDS', 'IPS', '入侵检测', '告警研判', '特征库']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 

@@ -5,6 +5,7 @@ category: security
 subcategory: cs
 tags: ['Cobalt Strike', 'Team Server', 'Beacon', '红队', '入门']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 1
 ---
 

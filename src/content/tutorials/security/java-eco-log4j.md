@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Log4j', 'Log4Shell', 'JNDI', 'CVE-2021-44228', 'RCE']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

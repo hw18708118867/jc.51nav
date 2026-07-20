@@ -5,6 +5,7 @@ category: security
 subcategory: hardening
 tags: ['Nginx加固', '安全响应头', 'TLS', 'limit_req', '隐藏版本']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

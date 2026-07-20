@@ -5,6 +5,7 @@ category: security
 subcategory: internal
 tags: ['内网渗透', '域', '工作组', '信息收集', '域控']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 1
 ---
 

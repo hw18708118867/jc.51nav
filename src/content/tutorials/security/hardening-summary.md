@@ -5,6 +5,7 @@ category: security
 subcategory: hardening
 tags: ['基线核查', '自动化加固', 'Ansible', '合规漂移', '巡检']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 8
 ---
 

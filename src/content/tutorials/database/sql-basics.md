@@ -5,6 +5,7 @@ category: database
 subcategory: relational
 tags: ['SQL', 'MySQL', '数据库入门', 'DDL']
 pubDate: 2026-07-12
+updatedDate: 2026-07-12
 order: 1
 ---
 

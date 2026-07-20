@@ -5,6 +5,7 @@ category: backend
 subcategory: python
 tags: ['Python', '爬虫', 'requests', 'BeautifulSoup', '反爬', '采集']
 pubDate: 2026-07-25
+updatedDate: 2026-07-25
 order: 8
 ---
 

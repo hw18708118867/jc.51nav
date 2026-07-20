@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['XXE', 'XML', '外部实体', 'Web安全']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 11
 ---
 

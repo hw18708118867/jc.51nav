@@ -5,6 +5,7 @@ category: backend
 subcategory: php
 tags: ['PHP', '后端入门', 'Web 容器', '内置函数']
 pubDate: 2026-07-15
+updatedDate: 2026-07-15
 order: 1
 ---
 

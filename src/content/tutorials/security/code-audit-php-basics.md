@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['PHP', '代码审计', '危险函数', '弱类型', '反序列化']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

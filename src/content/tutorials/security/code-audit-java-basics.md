@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['Java', '代码审计', 'Servlet', '调用链', '反序列化']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 6
 ---
 

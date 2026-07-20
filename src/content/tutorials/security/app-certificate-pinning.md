@@ -5,6 +5,7 @@ category: security
 subcategory: mobile-pentest
 tags: ['APP安全', '证书绑定', 'SSL Pinning', 'Frida', 'Burp']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

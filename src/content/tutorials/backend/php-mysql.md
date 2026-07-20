@@ -5,6 +5,7 @@ category: backend
 subcategory: php
 tags: ['PHP', 'MySQL', 'mysqli', '结果集']
 pubDate: 2026-07-17
+updatedDate: 2026-07-17
 order: 3
 ---
 

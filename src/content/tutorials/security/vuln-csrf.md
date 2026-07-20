@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['CSRF', '跨站请求伪造', 'Web安全', 'Token']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 6
 ---
 

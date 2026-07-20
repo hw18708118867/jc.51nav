@@ -5,6 +5,7 @@ category: backend
 subcategory: python
 tags: ['Python', '异常处理', 'try', 'except', '健壮性']
 pubDate: 2026-07-20
+updatedDate: 2026-07-20
 order: 3
 ---
 

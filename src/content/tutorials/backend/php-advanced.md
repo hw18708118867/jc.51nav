@@ -5,6 +5,7 @@ category: backend
 subcategory: php
 tags: ['PHP', '文件上传', 'Session', '面向对象']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 4
 ---
 

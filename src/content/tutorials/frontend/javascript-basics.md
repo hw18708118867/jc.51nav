@@ -5,6 +5,7 @@ category: frontend
 subcategory: javascript
 tags: ['JavaScript', '前端入门', 'script']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 1
 ---
 

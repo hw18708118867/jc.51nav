@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['变量覆盖', 'Web安全', 'PHP', '逻辑漏洞']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 13
 ---
 

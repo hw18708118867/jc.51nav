@@ -5,6 +5,7 @@ category: security
 subcategory: hardening
 tags: ['IIS加固', '请求过滤', '应用池', '写权限', 'Windows']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 7
 ---
 

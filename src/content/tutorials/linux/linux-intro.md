@@ -5,6 +5,7 @@ category: linux
 subcategory: linux
 tags: ['Linux', '虚拟机', '发行版', '环境搭建']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 1
 ---
 

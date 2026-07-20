@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['JWT', '令牌伪造', 'Web安全', '认证']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 15
 ---
 

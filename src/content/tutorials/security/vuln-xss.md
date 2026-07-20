@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['XSS', '跨站脚本', '前端安全', 'CSP']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 5
 ---
 

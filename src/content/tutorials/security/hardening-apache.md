@@ -5,6 +5,7 @@ category: security
 subcategory: hardening
 tags: ['Apache加固', 'httpd', '模块裁剪', 'htaccess', '安全头']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 6
 ---
 

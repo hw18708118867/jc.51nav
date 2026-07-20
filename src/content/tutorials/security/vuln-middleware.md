@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['中间件漏洞', '解析漏洞', 'WebLogic', 'Tomcat', 'Web安全']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 16
 ---
 

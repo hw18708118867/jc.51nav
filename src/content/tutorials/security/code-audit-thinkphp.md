@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['ThinkPHP', 'PHP', '框架审计', 'RCE', 'SQL注入']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 

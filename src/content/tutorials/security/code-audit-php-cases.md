@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['PHP', '逻辑漏洞', '越权', '支付安全', '鉴权绕过']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 4
 ---
 

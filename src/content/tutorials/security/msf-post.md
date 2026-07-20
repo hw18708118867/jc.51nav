@@ -5,6 +5,7 @@ category: security
 subcategory: msf
 tags: ['Metasploit', '后渗透', '持久化', 'autoroute', '跳板']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

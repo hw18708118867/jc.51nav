@@ -5,6 +5,7 @@ category: frontend
 subcategory: javascript
 tags: ['JavaScript', '函数', '箭头函数', '作用域']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 6
 ---
 

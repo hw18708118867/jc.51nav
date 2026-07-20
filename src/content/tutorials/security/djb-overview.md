@@ -5,6 +5,7 @@ category: security
 subcategory: djb
 tags: ['等级保护', '等保2.0', 'GB/T22239', '五级', '合规']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 1
 ---
 

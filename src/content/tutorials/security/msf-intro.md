@@ -5,6 +5,7 @@ category: security
 subcategory: msf
 tags: ['Metasploit', 'msfconsole', '渗透框架', '模块', '入门']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 1
 ---
 

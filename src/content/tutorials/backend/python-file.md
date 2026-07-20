@@ -5,6 +5,7 @@ category: backend
 subcategory: python
 tags: ['Python', '文件操作', 'open', 'with', 'CSV', 'pathlib']
 pubDate: 2026-07-22
+updatedDate: 2026-07-22
 order: 5
 ---
 

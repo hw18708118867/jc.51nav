@@ -5,6 +5,7 @@ category: security
 subcategory: mobile-pentest
 tags: ['APP安全', '信息收集', 'APK', 'MobSF', '反编译']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 4
 ---
 

@@ -5,6 +5,7 @@ category: frontend
 subcategory: javascript
 tags: ['JavaScript', 'DOM', 'querySelector']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 10
 ---
 

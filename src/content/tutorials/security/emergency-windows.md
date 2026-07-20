@@ -5,6 +5,7 @@ category: security
 subcategory: emergency
 tags: ['Windows应急', '计划任务', 'WMI', '注册表', '事件日志']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 

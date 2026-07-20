@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['PHP', '代码审计', 'Seay', 'Semgrep', 'Xdebug']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

@@ -5,6 +5,7 @@ category: frontend
 subcategory: html
 tags: ['HTML', 'SEO', '元信息', '可访问性', 'meta']
 pubDate: 2026-07-08
+updatedDate: 2026-07-08
 order: 8
 ---
 

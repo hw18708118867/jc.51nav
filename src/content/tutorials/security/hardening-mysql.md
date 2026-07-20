@@ -5,6 +5,7 @@ category: security
 subcategory: hardening
 tags: ['MySQL加固', '数据库安全', '最小权限', 'secure_file_priv', '审计']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 4
 ---
 

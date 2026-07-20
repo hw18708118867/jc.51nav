@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Java安全', '组件漏洞', '依赖供应链', 'SCA', '漏洞排查']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 1
 ---
 

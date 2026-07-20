@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['Spring', 'Java', '框架审计', 'SpEL', 'SSTI']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 7
 ---
 

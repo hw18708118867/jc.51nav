@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Fastjson', 'Jackson', 'autoType', 'JSON反序列化', 'RCE']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 4
 ---
 

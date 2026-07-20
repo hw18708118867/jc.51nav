@@ -5,6 +5,7 @@ category: linux
 subcategory: linux
 tags: ['Linux', '目录结构', '基础命令', 'grep', 'sed', 'awk']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 2
 ---
 

@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Shiro', 'WebLogic', 'Tomcat', 'Ghostcat', '依赖供应链', 'SCA']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 7
 ---
 

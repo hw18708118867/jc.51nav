@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Java反序列化', 'gadget链', 'CommonsCollections', 'ysoserial', 'RCE']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 

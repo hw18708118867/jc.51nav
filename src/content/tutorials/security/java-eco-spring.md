@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Spring', 'Spring4Shell', 'SpEL', 'CVE-2022-22965', 'RCE']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 6
 ---
 

@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['逻辑漏洞', '越权', '未授权访问', '业务安全']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 14
 ---
 

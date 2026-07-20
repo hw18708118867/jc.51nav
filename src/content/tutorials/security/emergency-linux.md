@@ -5,6 +5,7 @@ category: security
 subcategory: emergency
 tags: ['Linux应急', '后门排查', '持久化', '进程排查', '网络排查']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

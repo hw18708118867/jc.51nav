@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['SSRF', '服务端请求伪造', '内网渗透', 'Web安全']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 7
 ---
 

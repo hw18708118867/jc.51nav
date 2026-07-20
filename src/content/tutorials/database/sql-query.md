@@ -5,6 +5,7 @@ category: database
 subcategory: relational
 tags: ['SQL', 'DML', 'DQL', '查询']
 pubDate: 2026-07-13
+updatedDate: 2026-07-13
 order: 2
 ---
 

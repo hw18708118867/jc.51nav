@@ -5,6 +5,7 @@ category: security
 subcategory: java-eco
 tags: ['Struts2', 'OGNL', 'S2-045', 'S2-061', 'RCE']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

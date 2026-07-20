@@ -5,6 +5,7 @@ category: frontend
 subcategory: css
 tags: ['CSS', '前端入门', '选择器']
 pubDate: 2026-07-09
+updatedDate: 2026-07-09
 order: 1
 ---
 

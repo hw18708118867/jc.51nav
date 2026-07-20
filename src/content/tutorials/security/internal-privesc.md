@@ -5,6 +5,7 @@ category: security
 subcategory: internal
 tags: ['提权', 'Privilege Escalation', 'Windows提权', 'Linux提权', 'winPEAS']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

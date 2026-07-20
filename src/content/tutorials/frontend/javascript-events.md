@@ -5,6 +5,7 @@ category: frontend
 subcategory: javascript
 tags: ['JavaScript', '事件', '事件委托', '冒泡']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 11
 ---
 

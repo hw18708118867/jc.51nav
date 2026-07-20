@@ -5,6 +5,7 @@ category: database
 subcategory: relational
 tags: ['SQL', '子查询', 'JOIN', '多表关联']
 pubDate: 2026-07-14
+updatedDate: 2026-07-14
 order: 3
 ---
 

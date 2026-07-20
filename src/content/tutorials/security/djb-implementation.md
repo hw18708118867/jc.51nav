@@ -5,6 +5,7 @@ category: security
 subcategory: djb
 tags: ['等保建设', '安全体系', '云等保', '技术措施', '管理措施']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 5
 ---
 

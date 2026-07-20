@@ -5,6 +5,7 @@ category: security
 subcategory: djb
 tags: ['等保定级', '备案', '受侵害客体', '定级报告', '专家评审']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

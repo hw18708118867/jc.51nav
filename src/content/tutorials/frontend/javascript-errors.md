@@ -5,6 +5,7 @@ category: frontend
 subcategory: javascript
 tags: ['JavaScript', '错误处理', 'try-catch', '异常']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 13
 ---
 

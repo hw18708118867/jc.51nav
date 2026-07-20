@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['RCE', '命令注入', '远程代码执行', 'Web安全']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 8
 ---
 

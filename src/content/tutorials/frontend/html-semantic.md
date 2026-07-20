@@ -5,6 +5,7 @@ category: frontend
 subcategory: html
 tags: ['HTML', '语义化', 'SEO', '无障碍']
 pubDate: 2026-07-06
+updatedDate: 2026-07-06
 order: 6
 ---
 

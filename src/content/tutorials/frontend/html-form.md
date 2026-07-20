@@ -5,6 +5,7 @@ category: frontend
 subcategory: html
 tags: ['HTML', '表单', 'form', 'input']
 pubDate: 2026-07-05
+updatedDate: 2026-07-05
 order: 5
 ---
 

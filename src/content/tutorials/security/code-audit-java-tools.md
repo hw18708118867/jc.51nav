@@ -5,6 +5,7 @@ category: security
 subcategory: code-audit
 tags: ['Java', '代码审计', 'CodeQL', 'Tabby', 'IDEA']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 9
 ---
 

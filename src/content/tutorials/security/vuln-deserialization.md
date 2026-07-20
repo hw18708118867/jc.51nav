@@ -5,6 +5,7 @@ category: security
 subcategory: pentest
 tags: ['反序列化', '序列化', 'Web安全', '对象注入']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 12
 ---
 

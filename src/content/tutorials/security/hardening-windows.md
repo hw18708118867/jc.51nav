@@ -5,6 +5,7 @@ category: security
 subcategory: hardening
 tags: ['Windows加固', 'RDP', '组策略', '账户策略', '审计']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 

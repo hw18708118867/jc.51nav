@@ -5,6 +5,7 @@ category: linux
 subcategory: linux
 tags: ['Linux', '用户管理', '权限', 'sudo', 'SUID']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 3
 ---
 

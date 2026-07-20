@@ -5,6 +5,7 @@ category: security
 subcategory: cs
 tags: ['Cobalt Strike', 'Beacon', 'getsystem', '派生', 'spawn']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 

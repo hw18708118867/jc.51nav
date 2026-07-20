@@ -5,6 +5,7 @@ category: backend
 subcategory: python
 tags: ['Python', '多线程', 'threading', 'Lock', 'Queue', '并发']
 pubDate: 2026-07-24
+updatedDate: 2026-07-24
 order: 7
 ---
 

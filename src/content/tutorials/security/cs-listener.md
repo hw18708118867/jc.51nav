@@ -5,6 +5,7 @@ category: security
 subcategory: cs
 tags: ['Cobalt Strike', 'listener', 'Beacon', '上线', 'heartbeat']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 2
 ---
 

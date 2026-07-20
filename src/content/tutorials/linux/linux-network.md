@@ -5,6 +5,7 @@ category: linux
 subcategory: linux
 tags: ['Linux', '网络', 'ip', 'ss', '网卡配置']
 pubDate: 2026-07-18
+updatedDate: 2026-07-18
 order: 4
 ---
 

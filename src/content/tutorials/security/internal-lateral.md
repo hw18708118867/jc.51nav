@@ -5,6 +5,7 @@ category: security
 subcategory: internal
 tags: ['横向移动', 'Pass the Hash', 'psexec', 'WMI', 'Impacket']
 pubDate: 2026-07-19
+updatedDate: 2026-07-19
 order: 3
 ---
 
